@@ -1,69 +1,152 @@
-#form-main {
-    grid-area: main;
-    margin: 10% 0px;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
-    grid-template-rows: auto auto auto auto auto auto;
-    gap: 5%;
+.container {
+    grid-template-areas: 
+    'header header header header header header header header header header header header'
+    'main main main main main main preview preview preview preview preview preview'
+    'main main main main main main preview preview preview preview preview preview'
+    'main main main main main main preview preview preview preview preview preview'
+    'main main main main main main preview preview preview preview preview preview'
+    'main main main main main main preview preview preview preview preview preview'
+    'main main main main main main preview preview preview preview preview preview'
+    'main main main main main main preview preview preview preview preview preview'
+    'main main main main main main preview preview preview preview preview preview'
+    'main main main main main main preview preview preview preview preview preview'
+    'main main main main main main preview preview preview preview preview preview'
+    'footer footer footer footer footer footer footer footer footer footer footer footer';
 }
 
-#form-main > form {
-    grid-area: 1 / 1 / span 6 / span 3;
+
+#form-main {
+    grid-area: main;
 }
 
 .form-container {
     display: grid;
     grid-template-areas: 
-    'fname  fbgcolor'
-    'fname  fntcolor'
-    'textarea textarea';
-    gap: 20px
+    'fname fname  fbgcolor fbgcolor'
+    'fname fname  ffntcolor ffntcolor'
+    'textarea textarea textarea textarea'
+    'textarea textarea textarea textarea'
+    'textarea textarea textarea textarea'
+    'textarea textarea textarea textarea'
+    'textarea textarea textarea textarea'
+    'submit submit reset reset';
+    gap: 20px;
 }
 
+.form-container > * {
+    margin: 0 4%;
+    max-width: 100%;
+}
 
-.labelinputpair {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 10px;
-    justify-content: start;
-    align-content: center;
+input[type=text]:focus {
+    outline: none;
+}
+
+input[type=color] {
+    border: none;
+    outline: none;
+    background-color: blanchedalmond;
 }
 
 .form-container .fname {
     grid-area: fname;
-}
-
-.labelinputpair > label {
-    grid-column-start: 1;
-    align-self: center;
-}
-
-.labelinputpair > input {
-    grid-column-start: 2;
-    justify-content: left;
+    align-content: center;
 }
 
 .form-container  .fbgcolor {
     grid-area: fbgcolor;
+    align-content: center;
 }
 
-.form-container .fntcolor {
-    grid-area: fntcolor;
+.form-container .ffntcolor {
+    grid-area: ffntcolor;
+    align-content: center;
 }
 
 .form-container textarea {
     grid-area: textarea;
-    margin: 10px;
+    margin: 2% 2%;
     padding: 10px;
     height: 200px;
+    resize: none;
+}
+
+.form-container textarea:focus {
+    outline: none;
+}
+
+input[type=submit], input[type=reset]{
+    height: 35px;
+    border: none;
+    background-color: #ffe278;
+}
+
+input[type=submit]:hover, input[type=reset]:hover {
+    background-color: #f7da72;
+}
+
+.form-container input[type=submit] {
+    grid-area: submit;
+    justify-self: center;
+    width: 40%;
+}
+
+.form-container input[type=reset] {
+    grid-area: reset;
+    justify-self: center;
+    width: 40%;
 }
 
 
 /*TODO: Understand how to implement preview */
 
-#form-main > .preview {
-    grid-area: 1/ 4 / span 6 / span 3;
+.preview {
+    grid-area: preview;
     text-align: center;
     align-content: center;
-    max-width: 100%;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    #form-main {
+        grid-area: 2/ 1/ span 5/ span 12;   
+    }
+
+    .preview {
+        grid-area: 7/ 1/ span 5/ span 12;
+    }
+    .form-container {
+        grid-template-areas: 'fname' 'fbgcolor' 'ffntcolor' 'textarea' 'textarea' 'submit' 'reset' 'preview';
+    }
+    .form-container > * {
+        margin: 1% 2%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 600px) {
+    .form-container {
+        grid-template-areas: 'fname' 'fbgcolor' 'ffntcolor' 'textarea' 'textarea' 'submit' 'reset' 'preview';
+    }
+    .form-container > * {
+        margin: 1% 2%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px){
+    .form-container {
+        display: grid;
+        grid-template-areas: 
+        'fname fname  fbgcolor fbgcolor'
+        'fname fname  ffntcolor ffntcolor'
+        'textarea textarea textarea textarea'
+        'textarea textarea textarea textarea'
+        'textarea textarea textarea textarea'
+        'textarea textarea textarea textarea'
+        'textarea textarea textarea textarea'
+        'submit submit reset reset';
+        gap: 20px
+    }
 }

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="icon" type="image/x-icon" href="/icons/favicon_io/favicon.ico">
-        <title>Post It</title>
+        <title>Post It/Post</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--Importing google font-->
@@ -40,33 +40,57 @@
             <div id="form-main">
                 <form>
                     <div class="form-container">
-                        <div class="fname labelinputpair">
-                            <label for="fnameinput">
-                                Name:
-                            </label>
-                            <input type="text" id="fnameinput">
+                        <div class="fname">
+                            <table>
+                                <td>
+                                    <label for="fnameinput">
+                                        Name:
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="text" id="fnameinput">
+                                </td>
+                            </table>
                         </div>
 
-                        <div class="fbgcolor labelinputpair">
-                            <label for="fbgcolorsel">
-                                Background Color: 
-                            </label>
-                            <input type="color" id="fbgcolorsel">        
+                        <div class="fbgcolor">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="fbgcolorsel">
+                                            Background Color: 
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input type="color" id="fbgcolorsel">        
+                                    </td>
+                                </tr>
+                            </table>                            
                         </div>
 
-                        <div class="fntcolor labelinputpair">
-                            <label for="ffntcolorsel">
-                                Font Color:
-                            </label>
-                            <input type="color" id="ffntcolorsel">
+                        <div class="ffntcolor">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="ffntcolorsel">
+                                            Font Color:
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <input type="color" id="ffntcolorsel">
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                         <textarea name="" id=""></textarea>
+                        <input type="submit">
+                        <input type="reset">
                     </div>
                 </form>
+            </div>
 
-                <div class="preview">
-                    PREVIEW
-                </div>
+            <div class="preview">
+                PREVIEW
             </div>
 
             <div class="webpage-footer">
