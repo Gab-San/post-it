@@ -1,0 +1,103 @@
+/*
+    Fonts:
+    Arial (sans-serif)
+    Verdana (sans-serif)
+    Tahoma (sans-serif)
+    Trebuchet MS (sans-serif)
+    Times New Roman (serif)
+    Georgia (serif)
+    Garamond (serif)
+    Courier New (monospace)
+    Brush Script MT (cursive)
+*/
+
+* {
+    margin : 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, Verdana, sans-serif;
+    font-size: 100%;
+}
+
+header {
+    display: grid;
+    grid-template-columns: auto auto;
+    place-content: center space-between;
+    margin: 20px 40px;
+}
+
+header > nav > ul {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 30px;
+    list-style: none;
+}
+
+header > div > a.web-logo {
+    font-family: "Dancing Script", cursive;
+    color : white;
+    background-color: rgb(244, 216, 2);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    border: inset rgba(236, 217, 7, 0.932);
+}
+
+header > div > a.web-logo:link {
+    font-family: "Dancing Script", cursive;
+    color : white;
+    background-color: rgb(244, 216, 2);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px;
+    border: outset rgba(236, 217, 7, 0.932);
+}
+
+header > div > a.web-log:visited {
+    font-family: "Dancing Script", cursive;
+    color : white;
+    background-color: rgb(244, 216, 2);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px;
+    border: outset rgba(236, 217, 7, 0.932);
+}
+
+header > div > a.web-logo:hover {
+    font-family: "Dancing Script", cursive;
+    color : white;
+    background-color: rgb(255, 225, 0);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px;
+    border: initial rgb(255, 225, 0);
+}
+
+header > div > a.web-logo:active {
+    font-family: "Dancing Script", cursive;
+    background-color: rgb(244, 216, 2);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    padding: 10px;
+    border: inset rgba(236, 217, 7, 0.932);
+}
+
+.header-link {
+    padding: 10px;
+    font-size: 1.75em;
+    text-decoration: none;
+}
+
+/*
+.dancing-script-<unique> {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+*/
