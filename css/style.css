@@ -18,6 +18,7 @@
 
 body {
     font-family: Tahoma, Verdana, sans-serif;
+    background-color: blanchedalmond;
     font-size: 100%;
 }
 
@@ -32,20 +33,37 @@ header > nav > ul {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: center;
+    padding: 10px;
     column-gap: 30px;
     list-style: none;
 }
 
 
-header > div > a.web-logo {
-    font-family: "Dancing Script", cursive;
+header > a > div.web-logo {
     background: url(/icons/post-it.png) 0 0;
     background-size: cover;
+    padding: 10px;
     background-repeat: no-repeat;
-    color : black;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+}
+
+header a.header-link {
+    font-family: "Dancing Script", cursive;
+    color: black;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+header a.header-link:hover {
+    font-family: "Dancing Script", cursive;
+    color: rgba(198, 117, 4, 0.623);
+    text-decoration: none;
+}
+
+header a.header-link > div:hover {
+    transform: scale(120%);
 }
 
 .web-page-front {
@@ -55,16 +73,6 @@ header > div > a.web-logo {
     color: rgba(192, 173, 4, 0.762);
     font-size: 7em;
     font-family: "Dancing Script", cursive;
-}
-
-.header-link {
-    padding: 10px;
-    font-size: 1.5em;
-    text-decoration: none;
-}
-
-.grid-container {
-    display: grid;
 }
 
 
