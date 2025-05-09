@@ -11,25 +11,95 @@
     Brush Script MT (cursive)
 */
 
+
+/*
+    CSS styling basics applied
+    to all elements
+*/
 * {
     margin : 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
+/*
+    CSS styling applied to
+    the body.
+*/
 body {
     font-family: Tahoma, Verdana, sans-serif;
-    background-color: blanchedalmond;
-    font-size: 100%;
+    font-size: 100%; /* This is set to avoid errors when sizing font using em (it's a scalable font unit size)*/
 }
 
-header {
+/* General Container */
+
+.container {
+    display: grid;
+    grid-template-areas: 
+        'header'
+        'main'
+        'footer';
+    gap: 0px 10px;
+    background-color: blanchedalmond; /* The background is the same for every page */
+    padding: 10px;
+}
+
+.container > div {
+    padding: 10px;
+}
+
+/* Header styling section */
+
+.webpage-header {
+    grid-area: header;
     display: grid;
     grid-template-columns: auto auto;
     place-content: center space-between;
-    padding: 15px 40px;
 }
 
-header > nav > ul {
+/* Header anchor styling section */
+
+.webpage-header a.header-link {
+    font-family: "Dancing Script", cursive;
+    color: black;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.webpage-header a.header-link:hover {
+    font-family: "Dancing Script", cursive;
+    color: rgba(198, 117, 4, 0.623);
+    text-decoration: none;
+}
+
+/* 
+    The following definitions are needed to
+    create a transition.
+    (Transitions are possible only in container
+    type elements such as div article section etc...)
+*/
+
+.webpage-header a.header-link > div {
+    transition: transform 0.2s ease-in-out;
+}
+
+.webpage-header a.header-link > div:hover {
+    transform: scale(120%);
+}
+
+.webpage-header > a > div.web-logo {
+    background-image: url(/icons/post-it.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 10px;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* nav styling section*/ 
+
+.webpage-header > nav > ul {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: center;
@@ -38,41 +108,33 @@ header > nav > ul {
     list-style: none;
 }
 
+/* Main section*/
 
-header > a > div.web-logo {
-    background: url(/icons/post-it.png) 0 0;
-    background-size: cover;
-    padding: 10px;
-    background-repeat: no-repeat;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
+/*
+    This item is part of the web-site homepage.
+    Therefore it is correct to style it using the id selector,
+    due to it not being present in any other page.
+*/
 
-header a.header-link {
-    font-family: "Dancing Script", cursive;
-    color: black;
-    font-size: 1.5em;
-    text-decoration: none;
-}
-
-header a.header-link:hover {
-    font-family: "Dancing Script", cursive;
-    color: rgba(198, 117, 4, 0.623);
-    text-decoration: none;
-}
-
-header a.header-link > div:hover {
-    transform: scale(120%);
-}
-
-.web-page-front {
+#homepage-main {
+    grid-area: main;
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+#homepage-main > div {
+    padding: 15%;
+    text-align: center;
     color: rgba(192, 173, 4, 0.762);
     font-size: 7em;
     font-family: "Dancing Script", cursive;
+}
+
+/* Footer section */
+
+.webpage-footer {
+    grid-area: footer;
 }
 
 
