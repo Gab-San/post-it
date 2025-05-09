@@ -48,7 +48,6 @@ body {
         'footer footer footer footer footer footer footer footer footer footer footer footer';
     gap: 10px 0;
     padding: 10px;
-    align-content: space-between;
 }
 
 .container > div {
@@ -67,14 +66,12 @@ body {
 /* Header anchor styling section */
 
 .webpage-header a.header-link {
-    font-family: "Dancing Script", cursive;
     color: black;
     font-size: 1.5em;
     text-decoration: none;
 }
 
 .webpage-header a.header-link:hover {
-    font-family: "Dancing Script", cursive;
     color: rgba(198, 117, 4, 0.623);
     text-decoration: none;
 }
@@ -99,9 +96,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 10px;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
 }
 
 /* nav styling section*/ 
@@ -123,19 +117,18 @@ body {
     due to it not being present in any other page.
 */
 
-.webpage-main {
+#webpage-main {
     grid-area: main;
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
-.webpage-main > div {
+#webpage-main > div {
     padding: 15%;
     text-align: center;
     color: rgba(192, 173, 4, 0.762);
     font-size: 7em;
-    font-family: "Dancing Script", cursive;
 }
 
 /* Footer section */
@@ -145,11 +138,9 @@ body {
 }
 
 
-/*
-.dancing-script-<unique> {
+.dancing-script-user {
     font-family: "Dancing Script", cursive;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
 }
-*/

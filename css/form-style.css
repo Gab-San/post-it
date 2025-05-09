@@ -1,3 +1,6 @@
+/*
+    Overriding general container
+*/
 .container {
     grid-template-areas: 
     'header header header header header header header header header header header header'
@@ -14,16 +17,22 @@
     'footer footer footer footer footer footer footer footer footer footer footer footer';
 }
 
+/*
+    Placing the form into the 'main' portion of the grid.
+*/
 
 #form-main {
     grid-area: main;
 }
 
+/*
+    Grid container to customize form formatting
+*/
 .form-container {
     display: grid;
     grid-template-areas: 
     'fname fname  fbgcolor fbgcolor'
-    'fname fname  ffntcolor ffntcolor'
+    'ffntcolor ffntcolor fbrdcolor fbrdcolor'
     'textarea textarea textarea textarea'
     'textarea textarea textarea textarea'
     'textarea textarea textarea textarea'
@@ -33,13 +42,16 @@
     gap: 20px;
 }
 
+/*
+    Adding margins to all childs of the container
+*/
 .form-container > * {
     margin: 0 4%;
-    max-width: 100%;
 }
 
+
 input[type=text]:focus {
-    outline: none;
+    outline: none; /*Removes outline from focused text input*/
 }
 
 input[type=color] {
@@ -48,32 +60,55 @@ input[type=color] {
     background-color: blanchedalmond;
 }
 
+/* Name input */
+
 .form-container .fname {
     grid-area: fname;
     align-content: center;
 }
+
+/* Background color input */
 
 .form-container  .fbgcolor {
     grid-area: fbgcolor;
     align-content: center;
 }
 
+.form-container .fbrdcolor {
+    grid-area: fbrdcolor;
+    align-content: center;
+}
+
+/* Font color input */
+
 .form-container .ffntcolor {
     grid-area: ffntcolor;
     align-content: center;
 }
+
+/*
+    Added spacing between table items
+*/
+
+.form-container table {
+    border-spacing: 10px;
+}
+
+/* Message input */
 
 .form-container textarea {
     grid-area: textarea;
     margin: 2% 2%;
     padding: 10px;
     height: 200px;
-    resize: none;
+    resize: none; /* User cannot resize manually */
 }
 
 .form-container textarea:focus {
     outline: none;
 }
+
+/* Button styling section */
 
 input[type=submit], input[type=reset]{
     height: 35px;
@@ -106,6 +141,7 @@ input[type=submit]:hover, input[type=reset]:hover {
     align-content: center;
 }
 
+/* Responsive layout section */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -117,20 +153,43 @@ input[type=submit]:hover, input[type=reset]:hover {
         grid-area: 7/ 1/ span 5/ span 12;
     }
     .form-container {
-        grid-template-areas: 'fname' 'fbgcolor' 'ffntcolor' 'textarea' 'textarea' 'submit' 'reset' 'preview';
+        grid-template-areas: 'fname' 'ffntcolor' 'fbgcolor' 'fbrdcolor' 'textarea' 'textarea' 'submit' 'reset';
     }
     .form-container > * {
         margin: 1% 2%;
+    }
+
+    .form-container input[type=submit], .form-container input[type=reset] {
+        width: 100%;
     }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 600px) {
+    .container {
+        grid-template-areas: 
+        'header header header header header header header header header header header header'
+        'main main main main preview preview preview preview preview preview preview preview'
+        'main main main main preview preview preview preview preview preview preview preview'
+        'main main main main preview preview preview preview preview preview preview preview'
+        'main main main main preview preview preview preview preview preview preview preview'
+        'main main main main preview preview preview preview preview preview preview preview'
+        'main main main main preview preview preview preview preview preview preview preview'
+        'main main main main preview preview preview preview preview preview preview preview'
+        'main main main main preview preview preview preview preview preview preview preview'
+        'main main main main preview preview preview preview preview preview preview preview'
+        'main main main main preview preview preview preview preview preview preview preview'
+        'main main main main preview preview preview preview preview preview preview preview'
+        'footer footer footer footer footer footer footer footer footer footer footer footer';
+    }
     .form-container {
-        grid-template-areas: 'fname' 'fbgcolor' 'ffntcolor' 'textarea' 'textarea' 'submit' 'reset' 'preview';
+        grid-template-areas: 'fname' 'ffntcolor' 'fbgcolor' 'fbrdcolor' 'textarea' 'textarea' 'submit' 'reset';
     }
     .form-container > * {
         margin: 1% 2%;
+    }
+    .form-container input[type=submit], .form-container input[type=reset] {
+        width: 100%;
     }
 }
 
@@ -140,7 +199,7 @@ input[type=submit]:hover, input[type=reset]:hover {
         display: grid;
         grid-template-areas: 
         'fname fname  fbgcolor fbgcolor'
-        'fname fname  ffntcolor ffntcolor'
+        'ffntcolor ffntcolor fbrdcolor fbrdcolor'
         'textarea textarea textarea textarea'
         'textarea textarea textarea textarea'
         'textarea textarea textarea textarea'
@@ -148,5 +207,17 @@ input[type=submit]:hover, input[type=reset]:hover {
         'textarea textarea textarea textarea'
         'submit submit reset reset';
         gap: 20px
+    }
+
+    .form-container input[type=submit] {
+        grid-area: submit;
+        justify-self: center;
+        width: 40%;
+    }
+    
+    .form-container input[type=reset] {
+        grid-area: reset;
+        justify-self: center;
+        width: 40%;
     }
 }
