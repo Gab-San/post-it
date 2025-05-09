@@ -1,6 +1,6 @@
 var svgPreview;
 const bgColorConst = "#ffe278";
-const brdColorConst = "#ffae46";
+const brdColorConst = "#ffad45";
 
 
 window.addEventListener("load", function() {
