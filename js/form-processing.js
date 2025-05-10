@@ -11,5 +11,5 @@ function printForm() {
     console.log(txt);
     let lines = txt.split(/\r?\n/g);
     console.log(lines);
-    return false;
+    return true;
 }
