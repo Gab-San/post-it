@@ -125,10 +125,8 @@ body {
 }
 
 #webpage-main > div {
-    padding: 15%;
     text-align: center;
     color: rgba(192, 173, 4, 0.762);
-    font-size: 7em;
 }
 
 /* Footer section */
@@ -143,4 +141,26 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+}
+
+
+@media only screen and (max-width: 600px) {
+    #webpage-main > div {
+        padding: 10% 0%;
+        font-size: 3em;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #webpage-main > div {
+        padding: 10% 5%;
+        font-size: 4em;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #webpage-main > div {
+        padding: 15%;
+        font-size: 7em;
+    }
 }
