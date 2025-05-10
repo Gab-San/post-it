@@ -92,7 +92,7 @@ body {
 }
 
 .webpage-header > a > div.web-logo {
-    background-image: url(/icons/post-it.png);
+    background-image: url(/images/post-it.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 10px;
