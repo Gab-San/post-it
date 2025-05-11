@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-    require './php/dbHandler.php';
+    require_once SITE_ROOT . '/php/dbHandler.php';
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $input = array(
@@ -16,10 +16,10 @@
         }
 
         try {
-            $dbhandler = new DBHandler("localhost", "root", "", "postitdb");
-            $dbhandler->insert($input['name'], $input['bgcolor'], $input['brdcolor'], $input['fntcolor'], $input['ctnt']);
+            $dbHandler = new DBHandler("localhost", "root", "", "postitdb");
+            $dbHandler->insert($input['name'], $input['bgcolor'], $input['brdcolor'], $input['fntcolor'], $input['ctnt']);
         } catch(PDOException $e){ 
-            echo $e->getMessage();
+            debug($e->getMessage());
         }
     }
 

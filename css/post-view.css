@@ -1,0 +1,23 @@
+#webpage-main > iframe {
+    width: 1300px;
+    height: 500px;
+    padding: 2%;
+    background-image: none; /*TODO: Add a background image*/
+    background-color: white;
+    background-size: contain;
+}
+
+.posts-table {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 2%;
+    gap: 10px;
+    align-content: space-evenly;
+}
+
+.posts-table div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 5%;
+}

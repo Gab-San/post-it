@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+
     class DBHandler {
         // The following attributes are all constants
         // but I have no idea how to handle or declare constants in PHP
@@ -7,6 +8,7 @@
         private string $psw;
         private string $dbname;
         private ?PDO $conn;
+        private const dbAttributes = '(author, bgcolor, brdcolor, fntcolor, content)';
 
         /**
          * @throws PDOException if the attempt to init_connect to the database fails
@@ -100,15 +102,25 @@
         }
 
         public function insert(string $author, string $bgcolor, string $brdcolor, string $fntcolor, string $ctnt) {
-            $dbAttributes = "(author, bgcolor, brdcolor, fntcolor, content)";
             $query_insert = sprintf("
                 INSERT INTO Posts %s
                 VALUES ('%s', '%s', '%s', '%s', '%s')
-            ", $dbAttributes,
+            ", self::dbAttributes,
             $author, $bgcolor, $brdcolor, $fntcolor, $ctnt);
 
             $this->conn->exec($query_insert);
             debug("New records created successfully");
+        }
+
+        public function extractAll() : array {
+            $stmt = $this->conn->prepare('SELECT author, bgcolor, brdcolor, fntcolor, content FROM Posts');
+            $stmt->execute();
+
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            if($result) debug("Values found!");
+            else debug("A value wasn't found!");
+            
+            return $stmt->fetchAll();
         }
     }
     

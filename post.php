@@ -147,7 +147,8 @@
 
             <div class="webpage-footer">
                 <?php
-                    include './php/accept_post.php';
+                    require_once __DIR__ . '/config.php';
+                    include SITE_ROOT . '/php/accept_post.php';
                 ?>
             </div>
         </div>
