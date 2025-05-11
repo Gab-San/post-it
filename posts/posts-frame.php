@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
         <!--type="text/css" is implied-->
         <!--using relative path to root-->
+        <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/post-view.css">
     </head>
     <body>
