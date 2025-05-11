@@ -28,7 +28,7 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="/post.html" target="_self" class="header-link dancing-script-user">
+                            <a href="/post.php" target="_self" class="header-link dancing-script-user">
                                 <div>Post</div>
                             </a>
                         </li>
@@ -42,7 +42,13 @@
             </div>
 
             <div id="form-main">
-                <form method="post" action="" onsubmit="return printForm()" onreset="resetPreview()">
+                <form
+                method="post"
+                action="<?php 
+                    echo htmlspecialchars($_SERVER["PHP_SELF"])
+                ?>"
+                onsubmit="return printForm()"
+                onreset="resetPreview()">
                     <div class="form-container">
                         <div class="fname">
                             <table>
@@ -52,7 +58,9 @@
                                     </label>
                                 </td>
                                 <td>
-                                    <input type="text" id="fnameinput" required>
+                                    <!--PHP post request send an array and indexing is done on
+                                    the name attribute-->
+                                    <input type="text" name="fname" id="fnameinput" required>
                                 </td>
                             </table>
                         </div>
@@ -66,7 +74,7 @@
                                         </label>
                                     </td>
                                     <td>
-                                        <input type="color" id="fbgcolorsel" value="#ffe278">        
+                                        <input type="color" name="fbgcolor" id="fbgcolorsel" value="#ffe278">        
                                     </td>
                                 </tr>
                             </table>                            
@@ -81,7 +89,7 @@
                                         </label>
                                     </td>
                                     <td>
-                                        <input type="color" id="fbrdcolorsel" value="#ffae46">
+                                        <input type="color" name="fbrdcolor" id="fbrdcolorsel" value="#ffae46">
                                     </td>
                                 </tr>
                             </table>
@@ -96,12 +104,12 @@
                                         </label>
                                     </td>
                                     <td>
-                                        <input type="color" id="ffntcolorsel">
+                                        <input type="color" name="ffntcolor" id="ffntcolorsel">
                                     </td>
                                 </tr>
                             </table>
                         </div>
-                        <textarea required></textarea>
+                        <textarea name="fcontent" required></textarea>
                         <input type="submit">
                         <input type="reset">
                     </div>
@@ -135,6 +143,12 @@
                     By
                 </text>
                 </svg>
+            </div>
+
+            <div class="webpage-footer">
+                <?php
+                    include './php/accept_post.php';
+                ?>
             </div>
         </div>
     </body>
