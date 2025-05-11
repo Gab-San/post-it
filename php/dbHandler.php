@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-    class DbHandler {
+    class DBHandler {
         // The following attributes are all constants
         // but I have no idea how to handle or declare constants in PHP
         private string $servername;
@@ -37,7 +37,7 @@
                         )    
                     );
 
-                echo "<p>Connected successfully to $this->dbname</p>";
+                debug("Connected successfully to $this->dbname");
                 return $init_conn;
             } catch(PDOException $e) {
                 if($e->getCode() == 1049) { // Unknown database exception: means that the database doesn't exist
@@ -52,7 +52,6 @@
          * @throws PDOException if the attempt to init_connect to the database fails
          */
         private function __create_db() {
-        
             // Setup init_connection;
             $init_conn = new PDO(
                 "mysql:host=$this->servername",
@@ -65,21 +64,21 @@
                 );
             $query_createdb = "CREATE DATABASE $this->dbname";
             $init_conn->exec($query_createdb);
-            echo "<p>Database: $this->dbname created successfully</p>";
+            debug("Database: $this->dbname created successfully");
         }
 
         private function __create_table(PDO $init_conn) {
             $query_createtable = "CREATE TABLE Posts(
+                uploadtime timestamp DEFAULT CURRENT_TIMESTAMP,
                 author varchar(255),
-                uploadtime timestamp,
-                bgcolor char(9),
-                brdcolor char(9),
-                fntcolor char(9),             
-                content nvarchar(4000),
-                PRIMARY_KEY(author,uploadtime)
+                bgcolor char(7) NOT NULL,
+                brdcolor char(7) NOT NULL,
+                fntcolor char(7) NOT NULL,             
+                content nvarchar(4000) NOT NULL,
+                PRIMARY KEY (author,uploadtime)
             )";
             $init_conn->exec($query_createtable);
-            echo "<p>Table created succesfully</p>";
+            debug("Table created succesfully");
         }
         
         /**
@@ -99,10 +98,22 @@
         {
             $this->conn = null;
         }
+
+        public function insert(string $author, string $bgcolor, string $brdcolor, string $fntcolor, string $ctnt) {
+            $dbAttributes = "(author, bgcolor, brdcolor, fntcolor, content)";
+            $query_insert = sprintf("
+                INSERT INTO Posts %s
+                VALUES ('%s', '%s', '%s', '%s', '%s')
+            ", $dbAttributes,
+            $author, $bgcolor, $brdcolor, $fntcolor, $ctnt);
+
+            $this->conn->exec($query_insert);
+            debug("New records created successfully");
+        }
     }
     
 
-    
-
-    
+    function debug(string $msg) {
+        echo "<script>console.log('$msg');</script>";
+    }
 ?>

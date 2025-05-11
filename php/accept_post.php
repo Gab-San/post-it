@@ -1,26 +1,23 @@
 <?php declare(strict_types=1);
 
-    require "./php/dbHandler.php";
+    require './php/dbHandler.php';
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $input = array(
-            "name" => format_string($_POST['fname']),
-            "bgcolor" => $_POST['fbgcolor'],
-            "brdcolor" => $_POST['fbrdcolor'],
-            "fntcolor" => $_POST['ffntcolor']
+            'name' => format_string($_POST['fname']),
+            'bgcolor' => format_string($_POST['fbgcolor']),
+            'brdcolor' => format_string($_POST['fbrdcolor']),
+            'fntcolor' => format_string($_POST['ffntcolor']),
+            'ctnt' => format_string($_POST['fcontent'])
         );
-
-        $ctnt = format_ctnt($_POST['fcontent']);
 
         foreach($input as $x) {
             echo "$x <br>";
         }
 
-        foreach($ctnt as $line) {
-            echo "$line <br>";
-        }
         try {
-            $dbhanlder = new DbHandler("localhost", "root", "", "postitdb");
+            $dbhandler = new DBHandler("localhost", "root", "", "postitdb");
+            $dbhandler->insert($input['name'], $input['bgcolor'], $input['brdcolor'], $input['fntcolor'], $input['ctnt']);
         } catch(PDOException $e){ 
             echo $e->getMessage();
         }
@@ -31,13 +28,5 @@
         $str = stripslashes($str);
         $str = htmlspecialchars($str);
         return $str;
-    }
-
-    function format_ctnt(string $ctnt) : array {
-        $lines = preg_split("/\r?\n/", $ctnt);
-        foreach($lines as $idx => $line) {
-            $lines["$idx"] = format_string($line);
-        }
-        return $lines;
     }
 ?>
