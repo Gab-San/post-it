@@ -1,4 +1,7 @@
 <?php declare(strict_types=1);
+
+    require "./php/dbHandler.php";
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $input = array(
             "name" => format_string($_POST['fname']),
@@ -16,8 +19,11 @@
         foreach($ctnt as $line) {
             echo "$line <br>";
         }
-
-        connect_to_db();
+        try {
+            $dbhanlder = new DbHandler("localhost", "root", "", "postitdb");
+        } catch(PDOException $e){ 
+            echo $e->getMessage();
+        }
     }
 
     function format_string(string $str) : string {
@@ -33,19 +39,5 @@
             $lines["$idx"] = format_string($line);
         }
         return $lines;
-    }
-
-    function connect_to_db() {
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-
-        try {
-            $conn = new PDO("mysql:host=$servername;dbname=test", $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully to test";
-        } catch(PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
-        }
     }
 ?>
