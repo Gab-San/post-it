@@ -1,5 +1,10 @@
 const docForms = document.getElementsByTagName("form");
 
+window.addEventListener("load", function() {
+    let form = this.document.getElementsByTagName("form")[0];
+    form.addEventListener("reset", resetPHP);
+})
+
 function printForm() {
     let form = docForms[0];
     console.log(form);
@@ -12,4 +17,9 @@ function printForm() {
     let lines = txt.split(/\r?\n/g);
     console.log(lines);
     return true;
+}
+
+function resetPHP() {
+    let footer = document.getElementsByClassName("webpage-footer")[0];
+    footer.innerHTML = "";
 }

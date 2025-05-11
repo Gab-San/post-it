@@ -1,5 +1,6 @@
-const bgColorConst = "#ffe278";
-const brdColorConst = "#ffad45";
+const defaultBgColor = "#ffe278";
+const defaultBrdColor = "#ffad45";
+const defaultFntColor = "#000000ff";
 
 const xOffset = "15";
 const dyOffset = 10;
@@ -17,11 +18,11 @@ window.addEventListener("load", function() {
     txtarea.addEventListener("keyup", updatePreviewText);
 
     let bgColorBtn = this.document.getElementById("fbgcolorsel");
-    bgColorBtn.value = bgColorConst;
+    bgColorBtn.value = defaultBgColor;
     bgColorBtn.addEventListener("input", updateBgColor, false);
     
     let brdColorBtn = this.document.getElementById("fbrdcolorsel");
-    brdColorBtn.value = brdColorConst;
+    brdColorBtn.value = defaultBrdColor;
     brdColorBtn.addEventListener("input", updateBrdColor, false);
 
     let fntColorBtn = this.document.getElementById("ffntcolorsel");
@@ -86,7 +87,18 @@ function updateBrdColor(event) {
 
 function resetPreview() {
     let bg = document.getElementById("svgbackground");
-    bg.style.setProperty("fill", bgColorConst);
+    bg.style.setProperty("fill", defaultBgColor);
     let brd = document.getElementById("svgborder");
-    brd.style.setProperty("fill", brdColorConst);
+    brd.style.setProperty("fill", defaultBrdColor);
+    let txtList = document.getElementById("preview").getElementsByTagName("svg")[0].getElementsByTagName("text");
+    for(txt of txtList){
+        txt.setAttribute("fill", defaultFntColor);
+    }
+
+    let innerTxt = document.getElementById("svg_inner_text");
+    innerTxt.setAttribute("fill", defaultFntColor);
+    innerTxt.innerHTML = "";
+    let nameTxt = document.getElementById("svg_author_text");
+    nameTxt.setAttribute("fill", defaultFntColor);
+    nameTxt.innerHTML = "By";
 }
