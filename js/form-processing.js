@@ -3,6 +3,7 @@ const docForms = document.getElementsByTagName("form");
 window.addEventListener("load", function() {
     let form = this.document.getElementsByTagName("form")[0];
     form.addEventListener("reset", resetPHP);
+    this.setTimeout(() => resetPHP(), 2000);
 })
 
 function printForm() {
