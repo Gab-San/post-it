@@ -11,7 +11,7 @@
         <!--type="text/css" is implied-->
         <!--using relative path to root-->
         <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/post-view.css">
+        <link rel="stylesheet" href="/css/post-frame.css">
     </head>
     <body>
         <div class="posts-table">

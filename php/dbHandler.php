@@ -38,8 +38,6 @@
                         PDO::ERRMODE_EXCEPTION
                         )    
                     );
-
-                debug("Connected successfully to $this->dbname");
                 return $init_conn;
             } catch(PDOException $e) {
                 if($e->getCode() == 1049) { // Unknown database exception: means that the database doesn't exist
@@ -107,25 +105,25 @@
                 VALUES ('%s', '%s', '%s', '%s', '%s')
             ", self::dbAttributes,
             $author, $bgcolor, $brdcolor, $fntcolor, $ctnt);
-
             $this->conn->exec($query_insert);
+
             debug("New records created successfully");
         }
 
         public function extractAll() : array {
-            $stmt = $this->conn->prepare('SELECT author, bgcolor, brdcolor, fntcolor, content FROM Posts');
+            $stmt = $this->conn->prepare("
+                SELECT author, bgcolor, brdcolor, fntcolor, content FROM Posts
+            ");
+
             $stmt->execute();
 
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            if($result) debug("Values found!");
-            else debug("A value wasn't found!");
-            
+            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);            
             return $stmt->fetchAll();
         }
     }
     
 
     function debug(string $msg) {
-        echo "<script>console.log('$msg');</script>";
+        echo '<p>'. $msg. '</p>';
     }
 ?>

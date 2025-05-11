@@ -1,22 +1,35 @@
 #webpage-main > iframe {
-    width: 1300px;
     height: 500px;
     padding: 2%;
     background-image: none; /*TODO: Add a background image*/
-    background-size: contain;
 }
 
-.posts-table {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 2%;
-    gap: 10px;
-    align-content: space-evenly;
+@media only screen and (max-width: 600px) {
+    #webpage-main > iframe {
+        width: 500px;
+    }
 }
 
-.posts-table div {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    padding: 5%;
+@media only screen and (min-width: 600px) {
+    #webpage-main > iframe {
+        width: 600px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #webpage-main > iframe {
+        width: 980px;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    #webpage-main > iframe {
+        width: 1280px;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    #webpage-main > iframe {
+        width: 1560px;
+    }
 }

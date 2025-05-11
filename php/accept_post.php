@@ -11,10 +11,6 @@
             'ctnt' => format_string($_POST['fcontent'])
         );
 
-        foreach($input as $x) {
-            echo "$x <br>";
-        }
-
         try {
             $dbHandler = new DBHandler("localhost", "root", "", "postitdb");
             $dbHandler->insert($input['name'], $input['bgcolor'], $input['brdcolor'], $input['fntcolor'], $input['ctnt']);

@@ -1,0 +1,36 @@
+body {
+    background-color: transparent;
+}
+
+.posts-table {
+    display: grid;
+    padding: 2%;
+    gap: 10px;
+    align-content: space-evenly;
+}
+
+.posts-table div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 5%;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .posts-table {
+        grid-template-columns: auto;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .posts-table {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .posts-table {
+        grid-template-columns: auto auto auto;
+    }
+}
