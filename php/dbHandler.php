@@ -124,6 +124,10 @@
     
 
     function debug(string $msg) {
-        echo '<p>'. $msg. '</p>';
+        $output = preg_split("/\r?\n/", $msg);
+        if(is_array($output)) 
+            $output = implode(",", $output);
+
+        echo '<script>' . "console.log('$output');" . '</script>';
     }
 ?>

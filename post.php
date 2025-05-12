@@ -47,7 +47,7 @@
                 action="<?php 
                     echo htmlspecialchars($_SERVER["PHP_SELF"])
                 ?>"
-                onsubmit="return printForm()"
+                onsubmit="return validateForm()"
                 onreset="resetPreview()">
                     <div class="form-container">
                         <div class="fname">
