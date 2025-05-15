@@ -1,4 +1,4 @@
-# Post-It
+# <img src="./images/post-it.png" width="40" height="32"/> Post-It
 
 Post-It is a small website created first as a project and then developed for fun.
 
@@ -11,7 +11,7 @@ on the bullettin board of the view page.
 - [Run the Application](#run-the-application);
 - [Development Environment](#development-environment);
 - [Contributing](#contributing);
-- [License](#license);
+- [License](#license).
 
 ## Setup
 
@@ -52,7 +52,7 @@ To setup virtual hosts navigate to `C:\xampp\apache\conf\extra\httpd-vhosts.conf
     ServerName postit.localhost
     DocumentRoot "C:/sites/post-it"
 
-    <Directory "C:/sites/mysite-dev">
+    <Directory "C:/sites/post-it">
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
@@ -73,6 +73,7 @@ To run the application:
 1. Open XAMPP;
 2. Start the Apache server;
 3. Start the MySql server;
+4. Open the web page at postit.localhost.
 
 
 ## Development Environment
